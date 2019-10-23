@@ -2,7 +2,6 @@
   Layout = "_Layout";
 }
 
-@using ToDoList.Models;
 @model ToDoList.Models.Category;
 
 <h2>Category Details</h2>
@@ -15,9 +14,9 @@
   <p>no items found</p>
 }
 
-@foreach (Item item in @Model.Items)
+@foreach (var join in @Model.Items)
 {
-  <li>Description: @item.Description</li>
+  <li>@join.Item.Description</li>
 }
 </ul>
 
