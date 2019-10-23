@@ -29,6 +29,11 @@ namespace ToDoList.Controllers
             var userItems = _db.Items.Where(entry => entry.User.Id == currentUser.Id);
             return View(userItems);
         }
+        public ActionResult Create()
+        {
+            ViewBag.CategoryId = new SelectList(_db.Categories, "CategoryId", "Name");
+            return View();
+        }
 
         [HttpPost]
         public async Task<ActionResult> Create(Item item, int CategoryId)
